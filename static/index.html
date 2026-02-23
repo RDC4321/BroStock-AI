@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BroStock AI</title>
+        <link rel="stylesheet" href="/static/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <h1>BroStock AI</h1>
+        <div>
+            <input type="text" id="tickerInput" placeholder="Enter stock ticker(ex. AAPL)">
+            <button onclick="searchStock()">Predict</button>
+        </div>
+        <div id="result"></div>
+        <canvas id="stockChart" width="800" height="400"></canvas>
+        <script src="/static/script.js"></script>
+    </body>
+</html>
