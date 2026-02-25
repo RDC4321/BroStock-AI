@@ -11,8 +11,32 @@
             <input type="text" id="tickerInput" placeholder="Enter stock ticker(ex. AAPL)">
             <button onclick="searchStock()">Predict</button>
         </div>
-        <div id="result"></div>
-        <canvas id="stockChart" width="800" height="400"></canvas>
+        <div id="result" class="result-box">
+            <span id="priceText"></span>
+            <span id="changeText"></span>
+        </div>
+        <div class="mode-toggle">
+            <button id="techMode" class="mode-btn active">Technical</button>
+            <button id="aiMode" class="mode-btn">AI Forecast</button>
+        </div>
+        <div class="controls">
+            <label>
+                <input type="checkbox" id="toggleMA7" checked>
+                MA7
+            </label>
+            <label>
+                <input type="checkbox" id="toggleMA21" checked>
+                MA21
+            </label>
+        </div>
+        <div id="technicalPanels">
+            <canvas id="stockChart" width="750" height="350"></canvas>
+            <canvas id="rsiChart"></canvas>
+            <canvas id="macdChart"></canvas>
+        </div>
         <script src="/static/script.js"></script>
+        <div id="aiPanels" style="display: none;">
+            
+        </div>
     </body>
 </html>
