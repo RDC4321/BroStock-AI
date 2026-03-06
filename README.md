@@ -1,8 +1,6 @@
 # BroStock AI
-
-BroStock AI is a full-stack stock analytics dashboard built with **FastAPI, JavaScript, and Chart.js**.
-It fetches live stock market data and visualizes it through **interactive multi-panel charts with professional-grade technical indicators and AI-powered forecasting**.
-The project evolved from a simple stock chart into a **modular technical analysis platform with predictive modeling and trading-terminal style controls.**
+AI-powered stock analytics dashboard built with **FastAPI, JavaScript, and Chart.js**.
+It provides **technical analysis indicators, multi-panel financial charts, and short-term AI price forecasting** in a modern trading-terminal style interface.
 
 ### Technical Analysis Dashboard
 ![Technical Dashboard](screenshot/dashboard-technical.png)
