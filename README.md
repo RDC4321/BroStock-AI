@@ -1,134 +1,198 @@
 # BroStock AI
 
-BroStock AI is a full-stack stock analytics dashboard built with FastAPI, JavaScript, and Chart.js.  
-It fetches live stock market data and visualizes it using interactive charts with professional-grade technical indicators.
-
-The project has evolved from a simple price chart into a modular technical analysis dashboard.
+BroStock AI is a full-stack stock analytics dashboard built with **FastAPI, JavaScript, and Chart.js**.
+It fetches live stock market data and visualizes it through **interactive multi-panel charts with professional-grade technical indicators and AI-powered forecasting**.
+The project evolved from a simple stock chart into a **modular technical analysis platform with predictive modeling and trading-terminal style controls.**
 
 ---
 
-## Current Features
+# Features
 
-### Price & Trend Analysis
-- Live stock price fetching via Yahoo Finance (yfinance)
-- Interactive dynamic price chart (Chart.js)
-- 7-day and 21-day Moving Averages (MA7, MA21)
-- Toggle controls for MA visibility
-- Adaptive price line thickness based on indicator visibility
+## Price & Trend Analysis
+- Live stock price fetching via **Yahoo Finance (yfinance)**
+- Interactive dynamic price chart built with **Chart.js**
+- **7-day and 21-day Moving Averages (MA7, MA21)**
+- Toggle controls for indicator visibility
+- Adaptive chart rendering for cleaner trend visualization
 
-### Volume Analysis
-- Volume bars integrated into the main price chart
-- Separate Y-axis handling for clean scaling
-- Visual confirmation of price strength
+---
 
-### RSI (Relative Strength Index – 14)
-- Full RSI momentum panel (0–100 scale)
+## Volume Analysis
+- Integrated **volume bars within the price chart**
+- Dual-axis scaling for accurate price/volume comparison
+- Helps confirm price movement strength
+
+---
+
+## RSI (Relative Strength Index – 14)
+- Dedicated **momentum analysis panel**
 - Overbought (70) and Oversold (30) reference levels
-- Background heat-zone shading
 - Backend-calculated rolling averages
-- Defensive handling of NaN and infinite values
-
-### MACD (Moving Average Convergence Divergence)
-- EMA(12) and EMA(26) based MACD line
-- 9-period Signal line
-- Histogram with dynamic green/red coloring
-- Separate synchronized panel
-- Momentum strength visualization
-
-### Dashboard Controls
-- Technical Mode / AI Mode toggle (AI mode scaffolded)
-- Clean separation of technical panels
-- Responsive dark-themed UI
-- Smooth chart transitions
-
-### Data Integrity & Stability
-- Defensive handling of pandas NaN / inf serialization
-- Multi-index DataFrame normalization
-- Safe float sanitization before JSON response
-- Clean backend-to-frontend data contract
+- Defensive handling of NaN / infinite values
 
 ---
 
-## Tech Stack
+## MACD (Moving Average Convergence Divergence)
+- EMA(12) and EMA(26) MACD calculation
+- 9-period Signal line
+- Histogram visualization
+- Dynamic green/red momentum bars
+- Separate synchronized chart panel
 
-### Backend
+---
+
+# AI Forecasting
+
+BroStock AI now includes an **AI-powered forecasting module** that predicts short-term price movement using **linear regression trend modeling**.
+
+### AI Forecast Panel
+- Separate **AI Forecast chart mode**
+- Historical price vs predicted future prices
+- Forecast displayed as **dashed projection line**
+
+### Forecast Horizon Controls
+Users can dynamically select forecast length:
+
+- **7 Days**
+- **14 Days**
+- **30 Days**
+
+The chart automatically updates without reloading the page.
+
+### Forecast Model
+The backend trains a **Linear Regression model** on historical price data to estimate short-term price trajectory.
+While intentionally simple, it demonstrates the integration of **machine learning workflows inside a real-time analytics dashboard**.
+
+---
+
+# Dashboard Controls
+
+- **Technical Mode / AI Forecast Mode toggle**
+- Forecast horizon selection (7D / 14D / 30D)
+- Indicator visibility toggles
+- Responsive trading-terminal style interface
+- Smooth chart transitions and redraws
+
+---
+
+# Data Integrity & Stability
+
+Financial data can contain missing or unstable values.  
+The backend includes defensive engineering to ensure stable visualization.
+
+- Safe float sanitization before JSON serialization
+- NaN / infinite value handling
+- Pandas multi-index normalization
+- Stable backend-frontend data contracts
+
+---
+
+# Tech Stack
+
+## Backend
 - Python
 - FastAPI
 - yfinance
 - pandas
-- Exponential & rolling window calculations
+- NumPy
+- scikit-learn (Linear Regression)
 
-### Frontend
+## Frontend
 - HTML
-- CSS (custom dark UI styling)
-- JavaScript
-- Chart.js (multi-dataset mixed charts)
+- CSS (custom dark UI)
+- JavaScript (ES Modules)
+- Chart.js
 
 ---
 
-## Architecture Overview
+# Architecture Overview
 
 User Input  
 → JavaScript fetch request  
 → FastAPI backend  
 → Yahoo Finance data (yfinance)  
-→ Backend computes indicators (MA, RSI, MACD, Volume)  
+→ Backend computes indicators (MA, RSI, MACD)  
+→ Linear Regression model generates forecast  
 → Safe JSON serialization  
-→ Chart.js renders multi-panel interactive dashboard  
+→ Chart.js renders interactive dashboard
 
-All financial calculations are performed in the backend to maintain clean separation of concerns and avoid frontend numerical instability.
+All financial calculations and forecasting are performed in the **backend** to ensure numerical stability and clean architecture.
 
 ---
 
-## Indicators Explained
+# Indicators Explained
 
 ### Moving Averages (MA7 / MA21)
 Used to smooth price data and identify short-term vs medium-term trends.
 
 ### Volume
-Used to confirm price movement strength.
-High volume + breakout = stronger conviction.
+Confirms strength behind price movement.
+High volume during breakouts often signals stronger conviction.
 
 ### RSI (14)
 Momentum oscillator:
-- Above 70 → Potentially overbought
-- Below 30 → Potentially oversold
+
+- Above **70 → Overbought**
+- Below **30 → Oversold**
 
 ### MACD
 Trend-following momentum indicator:
+
 - MACD crossing above signal → Bullish shift
 - MACD crossing below signal → Bearish shift
-- Histogram shows momentum acceleration
+- Histogram visualizes momentum acceleration
 
 ---
 
-## Roadmap (In Progress)
+# Project Structure
 
-- [ ] Regression-based forecasting model
-- [ ] Confidence interval bands
-- [ ] Time-range selector (1W, 1M, 3M, 1Y)
-- [ ] Candlestick chart mode
-- [ ] Crosshair synchronization across panels
-- [ ] AI forecast visualization panel
-- [ ] Deployment (cloud hosting)
+backend/
+* main.py
+* stock_analyzer.py
+
+frontend/
+* index.html
+* style.css
+js/
+* app.js
+* charts.js
+* ui.js
+* api.js
+
+The application follows a **clear separation of concerns**:
+- Backend handles **data, indicators, and forecasting**
+- Frontend handles **rendering and user interaction**
 
 ---
 
-## Why This Project?
+# Roadmap
 
-This project demonstrates:
+Future improvements planned for BroStock AI:
+- AI **confidence interval bands**
+- Portfolio backtesting tool
+- Candlestick chart mode
+- Time-range selector (1W, 1M, 3M, 1Y)
+- Crosshair synchronization across charts
+- AI buy/sell signal engine
+- News sentiment integration
+- Public cloud deployment
+
+---
+
+# Why This Project?
+This project demonstrates practical skills in:
 
 - Full-stack system design
-- Financial indicator implementation from scratch
+- Financial indicator implementation
+- Machine learning integration
 - API design & structured JSON contracts
-- Defensive data engineering practices
-- Chart.js multi-panel architecture
-- State management in interactive dashboards
-- Incremental, versioned feature expansion
+- Defensive data engineering
+- Chart.js multi-panel visualization
+- Interactive UI state management
+It serves as both a **learning project and a portfolio piece showcasing applied financial analytics and web engineering.**
 
 ---
 
-## Disclaimer
-
-This project is for educational and portfolio purposes only.  
-It does not provide financial advice.
+# Disclaimer
+This project is for **educational and portfolio purposes only**.
+It does **not provide financial advice or trading recommendations.**
