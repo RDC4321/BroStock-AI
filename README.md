@@ -8,7 +8,7 @@ The project evolved from a simple stock chart into a **modular technical analysi
 
 ---
 
-![AI Dashboard](screenshot/dashboard-ai.png)
+![AI Dashboard](screenshot/dashboard-ai.PNG)
 
 ---
 
