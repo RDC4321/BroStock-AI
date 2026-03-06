@@ -184,8 +184,6 @@ The application follows a **clear separation of concerns**:
 # Running Locally
 
 Clone the repository:
-
-```bash
 git clone https://github.com/RDC4321/BroStock-AI.git
 cd BroStock-AI
 
@@ -197,8 +195,9 @@ uvicorn main:app --reload
 
 Open in browser:
 http://127.0.0.1:8000
-```markdown
+
 ---
+
 # Roadmap
 
 Future improvements planned for BroStock AI:
