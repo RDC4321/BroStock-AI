@@ -11,7 +11,7 @@ It provides **technical analysis indicators, multi-panel financial charts, and s
 ![Technical Dashboard](screenshot/dashboard-technical.png)
 
 ### AI Forecast Mode
-![AI Forecast](screenshot/dashboard-ai.png)
+![AI Forecast](screenshot/dashboard-AI.PNG)
 
 ## Overview
 
