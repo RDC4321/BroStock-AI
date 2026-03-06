@@ -1,4 +1,9 @@
 # BroStock AI
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-backend-green)
+![Chart.js](https://img.shields.io/badge/Chart.js-visualization-orange)
+![Status](https://img.shields.io/badge/status-active-success)
+
 AI-powered stock analytics dashboard built with **FastAPI, JavaScript, and Chart.js**.
 It provides **technical analysis indicators, multi-panel financial charts, and short-term AI price forecasting** in a modern trading-terminal style interface.
 
@@ -7,6 +12,15 @@ It provides **technical analysis indicators, multi-panel financial charts, and s
 
 ### AI Forecast Mode
 ![AI Forecast](screenshot/dashboard-ai.png)
+
+## Overview
+
+BroStock AI is a full-stack financial analytics dashboard that combines
+technical indicators and machine learning forecasting into an interactive web interface.
+
+The system fetches real-time market data, calculates indicators such as
+RSI, MACD, and moving averages, and visualizes them through synchronized
+multi-panel charts.
 
 # Features
 
@@ -149,17 +163,17 @@ Trend-following momentum indicator:
 # Project Structure
 
 backend/
-* main.py
-* stock_analyzer.py
+├── main.py
+└── stock_analyzer.py
 
 frontend/
-* index.html
-* style.css
-js/
-* app.js
-* charts.js
-* ui.js
-* api.js
+├── index.html
+├── style.css
+└── js/
+    ├── app.js
+    ├── charts.js
+    ├── ui.js
+    └── api.js
 
 The application follows a **clear separation of concerns**:
 - Backend handles **data, indicators, and forecasting**
@@ -167,6 +181,24 @@ The application follows a **clear separation of concerns**:
 
 ---
 
+# Running Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/RDC4321/BroStock-AI.git
+cd BroStock-AI
+
+Install dependencies:
+pip install -r requirements.txt
+
+Run the server:
+uvicorn main:app --reload
+
+Open in browser:
+http://127.0.0.1:8000
+```markdown
+---
 # Roadmap
 
 Future improvements planned for BroStock AI:
