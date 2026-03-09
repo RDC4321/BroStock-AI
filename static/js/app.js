@@ -34,7 +34,8 @@ async function searchStock() {
 
         updatePriceUI(data);
         window.latestData = data;
-        renderPriceChart(data);
+        console.log("Signals:", data.signals);
+        renderPriceChart(data, data.signals);
         renderMACD(data);
 
         if (data.forecast){
@@ -42,9 +43,42 @@ async function searchStock() {
                 data.dates,
                 data.datasets.prices,
                 data.forecast.dates,
-                data.forecast.prices
+                data.forecast.prices,
+                data.forecast.upper_band,
+                data.forecast.lower_band
         );
         }
+    
+    const signalEl = document.getElementById("aiSignal");
+    const confidenceEl = document.getElementById("signalConfidence");
+
+    const signalData = data.ai_signal;
+
+    signalEl.textContent = signalData.signal;
+    confidenceEl.textContent = "Confidence: " + signalData.confidence + "%";
+    const detailsEl = document.getElementById("signalDetails");
+    detailsEl.innerHTML =
+        "Trend: " + signalData.trend +
+        "<br>RSI: " + signalData.rsi +
+        "<br>MACD: " + signalData.macd;
+        
+    signalEl.classList.remove("buy","sell","hold","strongbuy","strongsell");
+
+    if(signalData.signal === "STRONG BUY"){
+        signalEl.classList.add("strongbuy");
+    }
+    else if(signalData.signal === "STRONG SELL"){
+        signalEl.classList.add("strongsell");
+    }
+    else if(signalData.signal === "BUY"){
+        signalEl.classList.add("buy");
+    }
+    else if(signalData.signal === "SELL"){
+        signalEl.classList.add("sell");
+    }
+    else{
+        signalEl.classList.add("hold");
+    }
 
     } catch (error) {
         console.error("Unexpected error:", error);

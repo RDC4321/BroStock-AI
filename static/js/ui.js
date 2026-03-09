@@ -40,6 +40,7 @@ export function setMode(mode) {
 
     const techControls = document.getElementById("technicalControls");
     const aiControls = document.getElementById("aiControls");
+    const signalBox = document.getElementById("signalBox");
 
     techBtn.classList.remove("active");
     aiBtn.classList.remove("active");
@@ -49,12 +50,14 @@ export function setMode(mode) {
         aiPanels.style.display = "none";
         techControls.style.display = "block";
         aiControls.style.display = "none";
+        signalBox.style.display = "none";
         techBtn.classList.add("active");
     } else {
         techPanels.style.display = "none";
         aiPanels.style.display = "block";
         techControls.style.display = "none";
         aiControls.style.display = "block";
+        signalBox.style.display = "block";
         aiBtn.classList.add("active");
     
         setTimeout(() =>{
@@ -69,7 +72,9 @@ export function setMode(mode) {
                     window.latestData.dates,
                     window.latestData.datasets.prices,
                     window.latestData.forecast.dates,
-                    window.latestData.forecast.prices
+                    window.latestData.forecast.prices,
+                    window.latestData.forecast.upper_band,
+                    window.latestData.forecast.lower_band
             );
         }
     }

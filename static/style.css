@@ -173,3 +173,99 @@ canvas {
     color: black;
     box-shadow: 0 0 10px rgba(0,255,204,0.6);
 }
+
+.ai-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+#aiSignal {
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-left: 6px;
+    font-weight: bold;
+}
+
+.signal-card{
+    display:inline-block;
+    padding:12px 20px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(0,255,204,0.4);
+    backdrop-filter:blur(6px);
+    margin-bottom:15px;
+    min-width:160px;
+    text-align:center;
+}
+
+.signal-title{
+    font-size:12px;
+    letter-spacing:1px;
+    color:#00ffcc;
+    opacity:0.8;
+}
+
+.signal-value{
+    font-size:24px;
+    font-weight:700;
+    margin-top:4px;
+}
+
+.signal-confidence{
+    font-size:12px;
+    margin-top:4px;
+    opacity:0.7;
+}
+
+#signalBox{
+    font-size: 16px;
+    font-weight: 600;
+    color: #00f5c4;
+    margin: 0;
+    display:flex;
+    justify-content:flex-end;
+    margin-top: 10px;
+    margin-bottom:20px;
+}
+
+.buy {
+    background: rgba(0,255,150,0.15);
+    color: #00ff95;
+    border: 1px solid #00ff95;
+    box-shadow:0 0 10px #00ff95;
+}
+
+.sell {
+    background: rgba(255,70,70,0.15);
+    color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+    box-shadow:0 0 10px #ff4d4d;
+}
+
+.hold {
+    background: rgba(255,200,0,0.15);
+    color: #ffc400;
+    border: 1px solid #ffc400;
+    box-shadow:0 0 10px #ffc400;
+}
+
+.strongbuy {
+    background: rgba(0,255,150,0.25);
+    color: #00ffcc;
+    border: 1px solid #00ffcc;
+    box-shadow: 0 0 8px #00ffcc;
+}
+
+.strongsell {
+    background: rgba(255,70,70,0.15);
+    color: #ff0066;
+    border: 1px solid #ff0066;
+    box-shadow: 0 0 8px #ff0066;
+}
+
+.forecast-label{
+    color:#00ffcc;
+    font-weight:600;
+}

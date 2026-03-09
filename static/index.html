@@ -18,7 +18,6 @@
                     <button onclick="searchStock()">Analyze</button>
                 </div>
             </header>
-
             <div class="price-card">
                 <span id="loadingText" style="display: none;">Loading...</span>
                 <span id="priceText"></span>
@@ -38,14 +37,6 @@
                     <span>MA21</span>
                 </label>
             </div>
-            <div id="aiControls" class="controls">
-                <span class="forecast-label">Forecast Horizon</span>
-                <div class="forecast-buttons">
-                    <button class="forecast-btn active" data-days="7">7D</button>
-                    <button class="forecast-btn" data-days="14">14D</button>
-                    <button class="forecast-btn" data-days="30">30D</button>
-                </div>
-            </div>
             <div id="technicalPanels">
                 <div class="chart-card">
                     <canvas id="stockChart"></canvas>
@@ -58,6 +49,24 @@
                 </div>
             </div>
             <div id="aiPanels" style="display: none;">
+            <div class="ai-header">
+                <div id="aiControls" class="controls">
+                    <span class="forecast-label">Forecast Horizon</span>
+                    <div class="forecast-buttons">
+                        <button class="forecast-btn active" data-days="7">7D</button>
+                        <button class="forecast-btn" data-days="14">14D</button>
+                        <button class="forecast-btn" data-days="30">30D</button>
+                    </div>
+                </div>
+                <div id="signalBox">
+                    <div class="signal-card">
+                        <div class="signal-title">AI SIGNAL</div>
+                        <div id="aiSignal" class="signal-value">-</div>
+                        <div id="signalConfidence" class="signal-confidence"></div>
+                        <div id="signalDetails" class="signal-details"></div>
+                    </div>
+                </div>
+            </div>
                 <div class="chart-card">
                     <canvas id="aiChart"></canvas>
                 </div>

@@ -4,9 +4,25 @@ let charts = {
     macd: null
 };
 
-export function renderPriceChart(data) {
+export function renderPriceChart(data,signals) {
 
     const ctx = document.getElementById("stockChart").getContext("2d");
+    const buyMarkers = signals?.buy.map(point => ({
+        x: data.dates[point[0]],
+        y: point[1]
+    })) || [];
+    const sellMarkers = signals?.sell.map(point => ({
+        x: data.dates[point[0]],
+        y:point[1]
+    })) || [];
+    const strongBuyMarkers = signals?.strong_buy?.map(point => ({
+        x: data.dates[point[0]],
+        y: point[1]
+    })) || [];
+    const strongSellMarkers = signals?.strong_sell?.map(point => ({
+        x: data.dates[point[0]],
+        y: point[1]
+    })) || [];
 
     if (charts.price) charts.price.destroy();
 
@@ -54,6 +70,51 @@ export function renderPriceChart(data) {
                     tension: 0.4,
                     pointRadius: 0,
                     fill: false
+                },
+                {
+                    type: "scatter",
+                    label: "Buy Signal",
+                    data: buyMarkers,
+                    pointBackgroundColor: "#00ff88",
+                    pointBorderColor: "#00ff88",
+                    pointRadius: 6,
+                    pointHoverRadius: 10,
+                    borderWidth: 2,
+                    pointStyle: "triangle",
+                },
+                {
+                    type: "scatter",
+                    label: "Sell Signal",
+                    data: sellMarkers,
+                    pointBackgroundColor: "#ff4d4d",
+                    pointBorderColor: "#ff4d4d",
+                    pointRadius: 6,
+                    pointHoverRadius: 10,
+                    borderWidth: 2,
+                    pointStyle: "triangle",
+                    rotation: 180
+                },
+                {
+                    type: "scatter",
+                    label: "Strong Buy",
+                    data: strongBuyMarkers,
+                    pointBackgroundColor: "#00ffcc",
+                    pointBorderColor: "#00ffcc",
+                    pointRadius: 10,
+                    pointHoverRadius: 12,
+                    borderWidth: 2,
+                    pointStyle: "star"
+                },
+                {
+                    type: "scatter",
+                    label: "Strong Sell",
+                    data: strongSellMarkers,
+                    pointBackgroundColor: "#ff0066",
+                    pointBorderColor: "#ff0066",
+                    pointRadius: 10,
+                    pointHoverRadius: 12,
+                    borderWidth: 2,
+                    pointStyle: "rectRot"
                 }
             ]
         },
@@ -210,7 +271,7 @@ export function toggleMovingAverage(type, visible){
     charts.price.update();
 }
 
-export function renderAIChart(dates, prices, forecastDates = [], forecastPrices = []){
+export function renderAIChart(dates, prices, forecastDates = [], forecastPrices = [], upperBand = [], lowerBand = []){
     const ctx = document.getElementById("aiChart").getContext("2d");
 
     if (window.aiChartInt){
@@ -240,6 +301,22 @@ export function renderAIChart(dates, prices, forecastDates = [], forecastPrices 
                     borderWidth: 3,
                     tension: 0.4,
                     pointRadius: 0
+                },
+                {
+                    label:"Upper Bound",
+                    data:[...Array(prices.length).fill(null), ...upperBand],
+                    borderColor:"rgba(255,0,255,0.3)",
+                    borderWidth:1,
+                    pointRadius:0
+                },
+                {
+                    label:"Lower Bound",
+                    data:[...Array(prices.length).fill(null), ...lowerBand],
+                    borderColor:"rgba(255,0,255,0.3)",
+                    borderWidth:1,
+                    pointRadius:0,
+                    fill:"-1",
+                    backgroundColor:"rgba(255,0,255,0.12)"
                 }
             ]
         },
