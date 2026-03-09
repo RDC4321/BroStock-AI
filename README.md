@@ -9,18 +9,9 @@ It provides **technical analysis indicators, multi-panel financial charts, and s
 
 ---
 
-## Live Demo (Coming Soon)
+## Live Demo
 
-A **live hosted version** of BroStock AI will be deployed soon using a **hybrid cloud architecture**.
-
-Planned stack:
-
-- **Render** → FastAPI backend hosting  
-- **Supabase** → database and backend services  
-- **Framer** → public-facing web interface  
-- **Make.com** → workflow automation
-
-The current GitHub repository contains the **core application source code only**, intended for **project demonstration and portfolio purposes**.
+https://brostock-ai-demo.onrender.com
 
 ### Technical Analysis Dashboard
 ![Technical Dashboard](screenshot/dashboard-technical.png)
