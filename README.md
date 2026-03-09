@@ -26,7 +26,7 @@ The current GitHub repository contains the **core application source code only**
 ![Technical Dashboard](screenshot/dashboard-technical.png)
 
 ### AI Forecast Mode
-![AI Forecast](screenshot/dashboard-AI.PNG)
+![AI Forecast](screenshot/dashboard-AI.png)
 
 ---
 
